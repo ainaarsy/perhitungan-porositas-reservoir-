@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPpugjYEQAConV35aaDWMyi",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ainaarsy/perhitungan-porositas-reservoir-/blob/main/menghitungporositasipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wMJGh_GPABOJ",
+        "outputId": "efdc9af1-ecb5-41a2-fd4c-f2ef9401ed0f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Porositas batuan adalah 14.81%\n"
+          ]
+        }
+      ],
+      "source": [
+        "def hitung_porosity(rho_b, rho_s):\n",
+        "    # Menghitung porositas dari massa jenis batuan dan massa jenis batuan padat\n",
+        "    porosity = 1 - (rho_b / rho_s)\n",
+        "    return porosity * 100  # Menghasilkan persentase porositas\n",
+        "\n",
+        "# Contoh penggunaan\n",
+        "rho_b = 2.3  # Massa jenis batuan (g/cm³)\n",
+        "rho_s = 2.7  # Massa jenis batuan padat (g/cm³)\n",
+        "\n",
+        "porosity = hitung_porosity(rho_b, rho_s)\n",
+        "print(f\"Porositas batuan adalah {porosity:.2f}%\")\n"
+      ]
+    }
+  ]
+}
