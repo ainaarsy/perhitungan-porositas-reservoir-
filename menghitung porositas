@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Porositas Reservoir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7ef;
+            border: 1px solid #c1e7d4;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Perhitungan Porositas Reservoir</h2>
+    <label for="volumeVoid">Volume Void (Vₓ) [m³]</label>
+    <input type="number" id="volumeVoid" placeholder="Masukkan volume void" step="any">
+    
+    <label for="volumeTotal">Volume Total (Vₜ) [m³]</label>
+    <input type="number" id="volumeTotal" placeholder="Masukkan volume total" step="any">
+    
+    <button onclick="hitungPorositas()">Hitung Porositas</button>
+    
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function hitungPorositas() {
+        // Ambil nilai dari input
+        let volumeVoid = parseFloat(document.getElementById('volumeVoid').value);
+        let volumeTotal = parseFloat(document.getElementById('volumeTotal').value);
+        
+        // Validasi input
+        if (isNaN(volumeVoid) || isNaN(volumeTotal) || volumeTotal === 0) {
+            document.getElementById('result').innerHTML = 'Silakan masukkan nilai yang valid untuk volume.';
+            return;
+        }
+
+        // Hitung porositas
+        let porositas = (volumeVoid / volumeTotal) * 100; // dalam persen
+
+        // Tampilkan hasil
+        document.getElementById('result').innerHTML = `Porositas Reservoir: ${porositas.toFixed(2)}%`;
+    }
+</script>
+
+</body>
+</html>
